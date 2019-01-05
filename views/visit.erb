@@ -1,0 +1,68 @@
+<h2>Записаться</h2>
+
+
+<form action="/visit" method="POST">
+
+  <div class="form-group">
+    <label>Ваше имя</label>
+    <input name="client[name]" type="text" class="form-control" placeholder="Имя" value="<%= @c.name %>">
+  </div>
+
+
+  <div class="form-group">
+  	<label>Ваш телефонный номер</label>
+  </br>
+  	<input name="client[phone]" type="phone" class="form-control" placeholder="Телефон" value="<%= @c.phone %>">
+  </div>
+
+
+  <div class="form-group">
+  	<label>Выберите дату</label>
+  </br>
+  	<input id="datetimepicker" name="client[datestamp]" type="text" class="form-control" placeholder="Дата и время" value="<%= @c.datestamp %>">
+  </div>
+
+
+  <div class="form-group">
+    <label>Парикмахер</label>
+    </br>
+    <select class="form-control" name="barber">
+      <% @barbers.each do |item| %>
+        <option <%= @c.name %> == <%= item.name %> ? 'selected' : '' ><%= item.name %></option>
+      <% end %>
+    </select>
+  </div>
+
+
+<div class="form-group">
+   <label>Выберете цвет</label></br>
+  <select id="colorpick" name="client[color]">
+    <option selected="white">Не красим</option>
+    <option value="#7bd148">Зеленый</option>
+    <option value="#5484ed">Темно синий</option>
+    <option value="#a4bdfc">Голубой</option>
+    <option value="#46d6db">Темно лазурный</option>
+    <option value="#7ae7bf">Светло лазурный</option>
+    <option value="#51b749">Зеленый</option>
+    <option value="#fbd75b">Желтый</option>
+    <option value="#ffb878">Оранжевый</option>
+    <option value="#ff887c">Розовый</option>
+    <option value="#dc2127">Красный</option>
+    <option value="#dbadff">Фиолетовый</option>
+    <option value="#e1e1e1">Серый</option>
+  </select>
+</div>
+
+  <button type="submit" class="btn btn-primary">Записаться</button>
+
+</form>
+
+<script type="text/javascript">
+$(function () {
+  $('#colorpick').simplecolorpicker();
+})
+
+$(function () {
+  $('#datetimepicker').datetimepicker();
+})
+</script>

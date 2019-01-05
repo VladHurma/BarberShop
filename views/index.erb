@@ -1,0 +1,6 @@
+<h1>Current barbers</h1>
+<% @barbers.each do |barber| %>
+<p>
+	<a href="/barber/<%= barber.id %>"><%= barber.name %><br></a>
+</p>
+<% end %>
